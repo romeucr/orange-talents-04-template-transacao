@@ -1,5 +1,8 @@
 package br.com.zupacademy.romeu.transacao;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Estabelecimento {
   private String nome;
   private String cidade;

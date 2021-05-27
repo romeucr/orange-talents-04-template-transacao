@@ -1,6 +1,12 @@
 package br.com.zupacademy.romeu.transacao;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Cartao {
+
+  @Column(name = "cartaoId")
   private String id;
   private String email;
 
