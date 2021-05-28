@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,10 @@ public class TransacaoController {
     if(listaTransacao.isEmpty())
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("O cartão informado não foi encontrado na base de dados.");
 
-    return ResponseEntity.ok().body(listaTransacao);
+    List<EventoDeTransacaoResponse> listaTransacaoResponse = new ArrayList<>();
+    listaTransacao.forEach(transacao ->
+      listaTransacaoResponse.add(new EventoDeTransacaoResponse(transacao)));
+
+    return ResponseEntity.ok().body(listaTransacaoResponse);
   }
 }

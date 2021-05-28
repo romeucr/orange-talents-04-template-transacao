@@ -1,8 +1,9 @@
 package br.com.zupacademy.romeu.transacao;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,7 +14,7 @@ public class EventoDeTransacao {
   @Id
   private String id;
 
-  @NotEmpty
+  @NotNull
   private BigDecimal valor;
 
   @Embedded
