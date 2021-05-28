@@ -38,5 +38,4 @@ public class EventoDeTransacaoResponse {
   public Date getEfetivadaEm() {
     return efetivadaEm;
   }
-
 }
