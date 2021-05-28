@@ -11,11 +11,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests(authorizeRequests ->
-            authorizeRequests
-                    .antMatchers(HttpMethod.GET, "api/cartoes/**").hasAuthority("SCOPE_proposta")
-                    .anyRequest().authenticated())
+    http.authorizeRequests()
+            .anyRequest().hasAuthority("SCOPE_fatura")
+            .and()
             .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
   }
-
 }
